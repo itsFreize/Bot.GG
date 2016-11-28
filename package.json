@@ -1,0 +1,36 @@
+{
+  "name": "bot.gg",
+  "version": "1.0.0",
+  "description": "Discord bot for gaming related Discord servers.",
+  "main": "botgg.js",
+  "dependencies": {
+    "droll": "^0.2.0",
+    "discord.js": "^10.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "node botgg.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsFreiZe/Bot.GG.git"
+  },
+  "keywords": [
+    "Discord",
+    "bot",
+    "Bot",
+    "discord",
+    "gamingbot",
+    "gaming"
+  ],
+  "author": "Vizual",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itsFreiZe/Bot.GG/issues"
+  },
+  "engines": {
+	"node": "6.9.1"
+	},
+  "homepage": "https://github.com/itsFreiZe/Bot.GG#readme"
+}
