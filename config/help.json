@@ -1,0 +1,3 @@
+{
+    "text": " ```\n**Bot.GG**\n Welcome to the Bot.GG help system\n ----------\n All commands are prefaced by a greater than symbol (>) and must be\n written in lower case E.G >help would bring up this help menu.\n\n >help\n >kick :- Kicks the mentioned user\n >purge :- Placing a number after this will clear that many messages (no\n number given clears 100)\n >announce :- Announces the user input\n >add :- Adds together multiple numbers\n >subtract :- Subtracts multiple numbers\n >multiply :- Multiplies multiple numbers\n >divide :- Divides multiple numbers\n >dice :- Rolls two D6 dice and provides you with the total\n >strat :- In bot version of Strat Roullete for CS:GO\n``` "
+}

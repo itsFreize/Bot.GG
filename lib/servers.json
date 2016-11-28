@@ -1,0 +1,13 @@
+{
+  "serverListTitle" : "Just a test title",
+  "serverListDescription" : "Just a test description",
+  "serverName1" : "just a server name",
+  "server1" : "just a server IP",
+  "serverName2" : "just another server name",
+  "server2" : "just another IP",
+  "serverName3" : "Just another server",
+  "server3" : "just another ip",
+  "serverName4" : "just another name",
+  "server4" : "Just another server",
+  "serverListFooter" : "This appears at the bottom"
+}
