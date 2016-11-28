@@ -3,12 +3,6 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 
 const config = require('./config/config.json')
-
-var path = require('path');
-var express = require('express');
-
-var app = express();
-app.set('port', (process.env.PORT || 5000));
 //---DO NOT DELETE THESE
 
 //---Upon succesfully starting the bot this will set its status and a console ready message
@@ -200,15 +194,3 @@ bot.on('message', message =>{
 });
 //---This logs the bot in
 bot.login(config.token)
-
-app.listen(app.get('port'), 'localhost', function onStart(err) {
-
-  if (err) {
-
-    console.log(err);
-
-  }
-
-  console.info('==> Listening on port %s.', app.get('port'));
-
-});

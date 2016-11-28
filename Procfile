@@ -1,1 +1,1 @@
-web: node botgg.js -p $PORT
+worker: node botgg.js -p $PORT
