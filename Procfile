@@ -1,1 +1,1 @@
-web: node bot.js -p $PORT
+web: node botgg.js -p $PORT
