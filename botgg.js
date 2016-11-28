@@ -201,9 +201,14 @@ bot.on('message', message =>{
 //---This logs the bot in
 bot.login(config.token)
 
-app.listen(app.get('port')){
+app.listen(app.get('port'), 'localhost', function onStart(err) {
+
   if (err) {
+
     console.log(err);
+
   }
-}
-console.info('===> Listening on Port %s.', app.get('port'));
+
+  console.info('==> Listening on port %s.', app.get('port'));
+
+});
