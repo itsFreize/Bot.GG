@@ -3,12 +3,13 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 
 const config = require('./config/config.json')
+
+app.set('port', (process.env.PORT || 5000));
 //---DO NOT DELETE THESE
 
 //---Upon succesfully starting the bot this will set its status and a console ready message
 bot.on('ready', () =>{
   console.log('Bot.GG is connected and ready for use');
-  bot.user.setStatus("Beep Boop-ing away!");
 });
 
 bot.on("guildMemberAdd", member =>{
