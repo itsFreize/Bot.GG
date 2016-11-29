@@ -5,6 +5,7 @@ const bot = new Discord.Client();
 const config = require('./config/config.json')
 //---DO NOT DELETE THESE
 
+
 //---Upon succesfully starting the bot this will set its status and a console ready message
 bot.on('ready', () =>{
   console.log('Bot.GG is connected and ready for use');
@@ -153,44 +154,139 @@ bot.on('message', message =>{
     showStrat();
   }
 
-  //Server info command
-  if(command === "servers"){
-    var fs = require("fs");
-    var contents = fs.readFileSync("./lib/servers.json");
-    var jsonContent = JSON.parse(contents);
+  //Coinflip
+  if(command === "coinflip"){
+    var Side = new Array()
 
-    message.reply("", {
-      embed: {
-        title: jsonContent.serverListTitle,
-        description: jsonContent.serverListDescription,
-        fields:[
-          {
-            name: jsonContent.serverName1,
-            value: jsonContent.server1
-          },
-          {
-            name: jsonContent.serverName2,
-            value: jsonContent.server2
-          },
-          {
-            name: jsonContent.serverName3,
-            value: jsonContent.server3
-          },
-          {
-            name: jsonContent.serverName4,
-            value: jsonContent.server4
-          }
-        ],
-        color: 0xff00D4,
-        timestamp: new Date(),
-        footer:
-        {
-          text: jsonContent.serverListFooter,
-          inline: true
-        }
-      }
+    Side[0] = 'Heads';
+    Side[1] = 'Tails';
+
+    var S = Side.length;
+    var whichSide = Math.round(Math.random()*(S-1));
+    function showSide(){
+      message.reply(Side[whichSide]);
+    }
+    showSide();
+  }
+
+  //---Steam commands
+  //---Steam 64 ID converter
+  if (command === "steam64"){
+    var steam = require('steamidconvert')(config.steamAPIkey)
+    steam.convertVanity(args.join(" "), function(err, res){
+      if(err) console.log(err)
+      else message.reply(res)
     });
   }
+
+  //--Steam level command
+  if (command === "steamlevel"){
+    var SteamApi = require('steam-api');
+    var player = new SteamApi.Player(config.steamAPIkey);
+
+    player.GetSteamLevel(args.join(" ")).done(function(result){
+  message.reply('The Steam level of ' + args.join(" ") + ' is: '+ result);
+});
+}
+
+
+  //Suggestions command
+  if(command === "suggestion"){
+    message.channel.sendMessage("", {embed: {
+  color: 3447003,
+  author: {
+    name: bot.user.username,
+    icon_url: bot.user.avatarURL
+  },
+  title: 'So you have a suggestion?',
+  description: 'Feel free to submit a suggestion to my inbox!',
+  fields: [
+    {
+      name: 'I have a suggestion for the bot!',
+      value: 'Please send me an email with your suggestion, When sending the email please make sure to title it "[SUGGESTION]Your suggestion" so I can differentiate between suggestions and bug reports.'
+    },
+    {
+      name: 'What should I send you?',
+      value: 'Feel free to sumbit any suggestions that you have, Whilst not all will be added I will make an attempt for those that fall in line with the ideals of this bot and those I find awesome, All suggestions will be documented'
+    },
+    {
+      name: 'Where should I send this?',
+      value: 'vizualmail@gmail.com'
+    }
+  ],
+  timestamp: new Date(),
+  footer: {
+  }
+}});
+  }
+  //Bug report command
+  if(command === "bug"){
+    message.channel.sendMessage("", {embed: {
+  color: 3447003,
+  author: {
+    name: bot.user.username,
+    icon_url: bot.user.avatarURL
+  },
+  title: 'Short guide on how to sumbit a bug report.',
+  description: 'This is a short guide on showing you how to submit a successful bug report.',
+  fields: [
+    {
+      name: 'Help I found a bug!',
+      value: 'Whilst I do attempt to ensure that my projects are bug free some bugs may slip through the cracks, If you have found a bug please send me an email with a bug report. If you could also title the bug report "[BUG]Title of bug" this allows me to differentiate between bug reports and suggestions. '
+    },
+    {
+      name: 'What information do you need?',
+      value: 'As much information as you can possibly give me about the bug, Things like what you were doing at the time and what actually happened. Screenshots are also handy if you know how to send them across.'
+    },
+    {
+      name: 'Where should I send this?',
+      value: 'vizualmail@gmail.com'
+    }
+  ],
+  timestamp: new Date(),
+  footer: {
+  }
+}});
+  }
+
+  //Server info command
+  // if(command === "servers"){
+  //   var fs = require("fs");
+  //   var contents = fs.readFileSync("./lib/servers.json");
+  //   var jsonContent = JSON.parse(contents);
+  //
+  //   message.reply("", {
+  //     embed: {
+  //       title: jsonContent.serverListTitle,
+  //       description: jsonContent.serverListDescription,
+  //       fields:[
+  //         {
+  //           name: jsonContent.serverName1,
+  //           value: jsonContent.server1
+  //         },
+  //         {
+  //           name: jsonContent.serverName2,
+  //           value: jsonContent.server2
+  //         },
+  //         {
+  //           name: jsonContent.serverName3,
+  //           value: jsonContent.server3
+  //         },
+  //         {
+  //           name: jsonContent.serverName4,
+  //           value: jsonContent.server4
+  //         }
+  //       ],
+  //       color: 0xff00D4,
+  //       timestamp: new Date(),
+  //       footer:
+  //       {
+  //         text: jsonContent.serverListFooter,
+  //         inline: true
+  //       }
+  //     }
+  //   });
+  // }
 });
 //---This logs the bot in
 bot.login(config.token)

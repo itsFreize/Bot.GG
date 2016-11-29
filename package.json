@@ -4,13 +4,15 @@
   "description": "Discord bot for gaming related Discord servers.",
   "main": "botgg.js",
   "dependencies": {
+    "discord.js": "^10.0.1",
     "droll": "^0.2.0",
-    "discord.js": "^10.0.1"
+    "google-translate-api-plus": "^1.0.0",
+    "steam-user-inventory": "^4.0.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"start": "node botgg.js"
+    "start": "node botgg.js"
   },
   "repository": {
     "type": "git",
@@ -30,7 +32,7 @@
     "url": "https://github.com/itsFreiZe/Bot.GG/issues"
   },
   "engines": {
-	"node": "6.9.1"
-	},
+    "node": "6.9.1"
+  },
   "homepage": "https://github.com/itsFreiZe/Bot.GG#readme"
 }
